@@ -9,7 +9,6 @@ evaluate(char *s) {
 	char *a = s;
 	char *b = a + n;
 	char *ptr;
-	int res;
 
 	while (a != b) {
 		ptr = b;
@@ -18,7 +17,7 @@ evaluate(char *s) {
 				if (islower(*a)) {
 					return (*a - 'a') + 1;
 				} else {
-					return res = (*a - 'A') + 27;
+					return (*a - 'A') + 27;
 				}
 			}
 			ptr++;
