@@ -5,6 +5,7 @@ My solutions of Advent of Code 2022.<https://adventofcode.com/2022>
 Days completed:
 - [x] day 01
 - [x] day 02
+- [x] day 03
 
 ## LICENSE
 
