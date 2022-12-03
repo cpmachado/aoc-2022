@@ -8,19 +8,14 @@ evaluate(char *s) {
 	int n = strlen(s) / 2;
 	char *a = s;
 	char *b = a + n;
-	char *ptr;
 
 	while (a != b) {
-		ptr = b;
-		while (*ptr != '\n') {
-			if (*a == *ptr) {
-				if (islower(*a)) {
-					return (*a - 'a') + 1;
-				} else {
-					return (*a - 'A') + 27;
-				}
+		if (strchr(b, *a)) {
+			if (islower(*a)) {
+				return (*a - 'a') + 1;
+			} else {
+				return (*a - 'A') + 27;
 			}
-			ptr++;
 		}
 		a++;
 	}

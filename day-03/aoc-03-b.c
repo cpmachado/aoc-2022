@@ -5,25 +5,14 @@
 
 int
 evaluate(char *a, char *b, char *c) {
-	char *pb, *pc;
 
 	while (*a != '\n') {
-		pb = b;
-		while (*pb != '\n') {
-			if (*a == *pb) {
-				pc = c;
-				while (*pc != '\n') {
-					if (*a == *pc) {
-						if (islower(*a)) {
-							return (*a - 'a') + 1;
-						} else {
-							return (*a - 'A') + 27;
-						}
-					}
-					pc++;
-				}
+		if (strchr(b, *a) && strchr(c, *a)) {
+			if (islower(*a)) {
+				return (*a - 'a') + 1;
+			} else {
+				return (*a - 'A') + 27;
 			}
-			pb++;
 		}
 		a++;
 	}
