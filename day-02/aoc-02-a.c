@@ -7,10 +7,10 @@ evaluate(char opponent, char player) {
 	int nP = player - 'X';
 	int shape = nP + 1;
 
-	if (nO == nP) {
+	if(nO == nP) {
 		return shape + 3;
 	}
-	if ((nO + 1) % 3 == nP) {
+	if((nO + 1) % 3 == nP) {
 		return shape + 6;
 	}
 
@@ -23,8 +23,8 @@ main(void) {
 	int sum = 0;
 	char opponent, player;
 
-	while (fgets(buffer, BUFSIZ, stdin)) {
-		if (sscanf(buffer, "%c %c", &opponent, &player) == 2) {
+	while(fgets(buffer, BUFSIZ, stdin)) {
+		if(sscanf(buffer, "%c %c", &opponent, &player) == 2) {
 			sum += evaluate(opponent, player);
 		}
 	}

@@ -9,9 +9,9 @@ evaluate(char *s) {
 	char *a = s;
 	char *b = a + n;
 
-	while (a != b) {
-		if (strchr(b, *a)) {
-			if (islower(*a)) {
+	while(a != b) {
+		if(strchr(b, *a)) {
+			if(islower(*a)) {
 				return (*a - 'a') + 1;
 			} else {
 				return (*a - 'A') + 27;
@@ -28,7 +28,7 @@ main(void) {
 	char rucksack[BUFSIZ];
 	int sum = 0;
 
-	while (fgets(rucksack, BUFSIZ, stdin)) {
+	while(fgets(rucksack, BUFSIZ, stdin)) {
 		sum += evaluate(rucksack);
 	}
 

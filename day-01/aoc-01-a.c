@@ -8,18 +8,18 @@ main(void) {
 	int reading;
 	int acc = 0;
 
-	while (fgets(buffer, BUFSIZ, stdin)) {
-		if (sscanf(buffer, "%d", &reading) == 1) {
+	while(fgets(buffer, BUFSIZ, stdin)) {
+		if(sscanf(buffer, "%d", &reading) == 1) {
 			acc += reading;
 		} else {
-			if (max < acc) {
+			if(max < acc) {
 				max = acc;
 			}
 			acc = 0;
 		}
 	}
 
-	if (max < acc) {
+	if(max < acc) {
 		max = acc;
 	}
 

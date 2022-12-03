@@ -15,8 +15,8 @@ main(void) {
 	int sum = 0;
 	char opponent, res;
 
-	while (fgets(buffer, BUFSIZ, stdin)) {
-		if (sscanf(buffer, "%c %c", &opponent, &res) == 2) {
+	while(fgets(buffer, BUFSIZ, stdin)) {
+		if(sscanf(buffer, "%c %c", &opponent, &res) == 2) {
 			sum += evaluate(opponent, res);
 		}
 	}
