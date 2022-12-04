@@ -6,6 +6,7 @@ Days completed:
 - [x] day 01
 - [x] day 02
 - [x] day 03
+- [x] day 04
 
 ## LICENSE
 
