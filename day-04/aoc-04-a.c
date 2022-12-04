@@ -5,7 +5,7 @@ int
 evaluate(char *s) {
 	int a, b, c, d;
 
-	if (sscanf(s, "%d-%d,%d-%d", &a, &b, &c, &d) != 4) {
+	if(sscanf(s, "%d-%d,%d-%d", &a, &b, &c, &d) != 4) {
 		return 0;
 	}
 
@@ -18,7 +18,7 @@ main(void) {
 	int sum;
 
 
-	while (fgets(buffer, BUFSIZ, stdin)) {
+	while(fgets(buffer, BUFSIZ, stdin)) {
 		sum += evaluate(buffer);
 	}
 
