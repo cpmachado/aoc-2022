@@ -27,4 +27,4 @@ stack.o: stack.c
 warehouse.o: warehouse.c
 
 aoc-05-a: aoc-05-a.o stack.o warehouse.o
-aoc-05-b: aoc-05-b.o
+aoc-05-b: aoc-05-b.o stack.o warehouse.o

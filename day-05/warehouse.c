@@ -5,6 +5,7 @@
 
 struct Warehouse {
 	Stack *v;
+	Stack temp;
 	unsigned long n;
 };
 
@@ -13,7 +14,10 @@ WarehouseCreate(unsigned long n, unsigned long cap) {
 	Warehouse w = (Warehouse)malloc(sizeof(struct Warehouse));
 	unsigned long i;
 
-	if(!w || !(w->v = (Stack*)malloc(sizeof(Stack) * n))) {
+	if(!w
+		|| !(w->v = (Stack*)malloc(sizeof(Stack) * n))
+		|| !(w->temp = StackCreate(cap))) {
+		free(w->v);
 		free(w);
 		return NULL;
 	}
@@ -23,6 +27,7 @@ WarehouseCreate(unsigned long n, unsigned long cap) {
 			for (i--; i >= 0; i--) {
 				StackDelete(w->v[i], NULL);
 			}
+			free(w->temp);
 			free(w->v);
 			free(w);
 			return NULL;
@@ -75,14 +80,32 @@ WarehouseReverse(Warehouse w) {
 }
 
 int
-WarehouseMove(Warehouse w, unsigned long i, unsigned long j) {
-	char *v = StackPop(w->v[i - 1]);
+WarehouseMove(Warehouse w, unsigned long o, unsigned long d) {
+	char *v = StackPop(w->v[o - 1]);
 
 	if(!v) {
 		return 0;
 	}
 
-	return StackPush(w->v[j - 1], v);
+	return StackPush(w->v[d - 1], v);
+}
+
+int
+WarehouseMoveK(Warehouse w, unsigned long k, unsigned long o, unsigned long d) {
+	unsigned long i;
+	char *v;
+
+	for (i = 0; i < k; i++) {
+		v = StackPop(w->v[o - 1]);
+		StackPush(w->temp, v);
+	}
+
+	for (i = 0; i < k; i++) {
+		v = StackPop(w->temp);
+		StackPush(w->v[d - 1], v);
+	}
+
+	return 1;
 }
 
 char
