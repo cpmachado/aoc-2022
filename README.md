@@ -8,7 +8,7 @@ Days completed:
 - [x] day 03
 - [x] day 04
 - [x] day 05
-- [ ] day 06
+- [x] day 06
 - [ ] day 07
 - [ ] day 08
 - [ ] day 09
@@ -21,6 +21,8 @@ Days completed:
 - [ ] day 16
 - [ ] day 17
 - [ ] day 18
+- [ ] day 19
+- [ ] day 20
 
 
 ## LICENSE
