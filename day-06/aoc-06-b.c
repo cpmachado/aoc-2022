@@ -35,27 +35,21 @@ parse(char *s) {
 
 int
 main(void) {
-	int i = 0, j, n;
-	char buffer[BUFSIZ];
-	char *s = buffer;
+	int j, n;
+	char buffer[10 * BUFSIZ];
 
-	while(fgets(s, BUFSIZ - MARKER_SIZE, stdin)) {
-		j = parse(buffer);
-		if(j >= 0) {
-			break;
-		}
-		n = strlen(s);
-		if (n > MARKER_SIZE) {
-			memcpy(buffer, &s[n - 1 - MARKER_SIZE], MARKER_SIZE);
-		} else {
-			break;
-		}
-		i += n;
-		s = buffer + MARKER_SIZE;
+	fgets(buffer, 10 * BUFSIZ, stdin);
+	n = strlen(buffer);
+	if(buffer[n - 1] == '\n') {
+		n--;
+		buffer[n] = '\0';
 	}
-
+	if(!n) {
+		return 0;
+	}
+	j = parse(buffer);
 	if(j >= 0) {
-		printf("%d\n", i + j);
+		printf("%d\n", j);
 	}
 
 	return 0;
